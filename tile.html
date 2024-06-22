@@ -1,0 +1,147 @@
+<html>
+
+<head>
+    <title>
+        Employee Tracker
+    </title>
+    <link res="stylesheet" src="./style.css">
+    <script src="./script.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-color: white;
+            color: white;
+            font-family: rubik;
+        }
+        
+        .container {
+            padding: 40px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-transform: uppercase;
+            color: #222;
+            text-align: center;
+            font-size: 54px;
+        }
+        
+        #card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-gap: 40px;
+            padding-inline-start: 0;
+        }
+        
+        .card {
+            border-radius: 30px;
+            height: max-content;
+            align-items: center;
+            width: 90%;
+            background: #e0e0e0;
+            box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+        }
+        
+        .card-title {
+            margin-top: 25px;
+            align-self: center;
+            display: inline-block;
+            margin-left: 20px;
+            color: #222;
+            text-transform: capitalize;
+            margin-bottom: 0px;
+            font-size: 28px;
+            font-weight: normal;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .card-subtitle {
+            font-size: large;
+            align-items: left;
+            color: #666;
+            font-weight: lighter;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .card-image {
+            align-self: center;
+            border-radius: 10%;
+            width: 10rem;
+            height: 15rem;
+            margin-left: 15px;
+            margin-top: 15px;
+        }
+        
+        @keyframes bounce {
+            20% {
+                transform: translateY(-6px);
+            }
+            40% {
+                transform: translateY(0px);
+            }
+            80% {
+                transform: translateY(-2px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="container">
+    <div style="grid-column:auto ;">
+        <img src="./images/logo.png" height="50px" class="navbar-brand" style="margin-left: 20px;">
+        <h6 class="navbar-text ">Tracker</h6>
+    </div>
+    <div class="container" id="Tile">
+        <ul id="card"></ul>
+        <div style="display: inline-flex; align-items: center;">
+            <input type="number" placeholder="Expense" class="form-control form-control-lg" style="border-radius: 50px ; width: 250px; align-self: center;" /><br><br>
+            <input type="button" value="Add" class="form-control form-control-lg" style="border-radius: 50px ; width: 100px; align-self: center;" />
+
+
+        </div><br><br>
+        <h1 class="card-subtitle">Total Salary: ₹100000
+        </h1>
+    </div>
+    <script type="text/javascript">
+        var user = [];
+
+        function GetRandomProfiles() {
+            var user = [];
+            fetch("https://randomuser.me/api/?results=1").then(function(randomusers) {
+                randomusers.json().then(function(userInfo) {
+                    userInfo.results.forEach(user => {
+                        console.log(user);
+                        const htmlst = `
+                        <li class="card" onClick="redirect()">
+                            <img class="card-image" src="${user.picture.large}"/>
+                            <h2 class="card-title">${user.name.first}</h2><br>
+                            <p class="card-subtitle">  ${user.email}</p><br>
+                            <p class="card-subtitle"> ${user.location.country}</p><br>
+                            <p class="card-subtitle"> ₹100000</p>
+                        </li>
+                    `
+                        document.getElementById("card").innerHTML += htmlst;
+                    });
+
+                    console.log(user);
+                })
+
+            });
+            console.log(user)
+        }
+
+        GetRandomProfiles();
+    </script>
+</body>
+
+</html>

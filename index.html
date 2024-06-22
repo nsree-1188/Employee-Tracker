@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>
+        Employee Tracker
+    </title>
+    <script src="./script.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div style="grid-column:auto ;">
+        <img src="./images/logo.png" height="50px" class="navbar-brand" style="margin-left: 20px;">
+        <h5 class="navbar-text ">Tracker</h5>
+    </div>
+
+    <section style="background-image: url('./images/main.jpg'); background-size: contain;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-light text-black" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+
+                            <div class="mb-md-5 mt-md-4 pb-5">
+                                <h2 class="fw-bold mb-2">Log In</h2><br><br>
+
+                                <div class="form-outline form-white mb-4" style="border-radius: 100%;">
+                                    <input type="email" id="Username" class="form-control form-control-lg" placeholder="Your email" style="border-radius: 50px;" required/>
+                                </div>
+
+                                <div class="form-outline form-white mb-4">
+                                    <input type="password" id="Password" class="form-control form-control-lg" placeholder="Your password" style="border-radius: 50px;" required/>
+                                </div>
+                                
+                                <div style="flex: auto; flex-direction: column; display: grid; grid-template-columns: 2;">
+                                    <button class="btn btn-outline-info btn-lg px-5" type="submit" onclick="verify()" style="border-radius: 50px;">Login</button>
+                                    <a href="./register.html" style="text-decoration: none; color: red; margin-top: 20px;">Register</a>                                    
+                                </div>
+                                <br><br>
+                                <p id="res" class="text-danger"></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
